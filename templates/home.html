@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% block titre%} Home {% endblock %}
+
+{% block contenu %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+            var m = "{{ message }}";
+            swal("Good job!", m, "success");
+            </script>
+        {% endif %}
+    {% endfor %}
+<div style="margin-top:20px">
+    <h1>Bienvenue</h1>
+    </div>
+{% endblock %}

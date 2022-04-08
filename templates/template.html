@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Reconnaissande_de_visage/css/bootstrap.min.css' %}">
+    <title> {% block titre %} {% endblock%} </title>
+ <style>
+   body{
+
+     background-image: url("{% static 'Reconnaissande_de_visage/images/ia-intelligence-artificielle.jpg' %}");
+   }
+ </style>
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+         <h3 class="navbar-brand">Réconnaissance de visage</h3>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'ajout' %}">Ajouter un etudiant</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Listes des nom es etudiants</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Listes des diplomes</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                                      </a>
+
+                                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                          <a class="dropdown-item" href="#"
+                                             onclick="event.preventDefault();
+                                                           document.getElementById('logout-form').submit();">
+                                              <p>Déconnecter</p>
+                                          </a>
+
+                                          <form id="logout-form" action="#" method="POST" class="d-none">
+                                              @csrf
+                                          </form>
+                                      </div>
+                                  </li>
+      </ul>
+          </div>
+        </div>
+      </nav>
+
+    {% block contenu %}
+
+    {% endblock%}
+      <script src="{% static 'Reconnaissande_de_visage/js/bootstrap.js' %}"></script>
+</body>
+</html>
